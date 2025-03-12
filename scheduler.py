@@ -31,11 +31,13 @@ def run_article_generator(topic):
     # 전체 명령어 조합
     full_cmd = activate_cmd + python_cmd + git_cmd
     
-    # 명령어 실행
-    result = subprocess.run(full_cmd, shell=True, text=True, capture_output=True)
+    # 명령어 실행 (인코딩을 utf-8로 설정하고 오류 대체 처리)
+    result = subprocess.run(full_cmd, shell=True, text=True, capture_output=True, encoding='utf-8', errors='replace')
     
     if result.returncode == 0:
         print(f"성공적으로 '{topic}'에 대한 글을 작성하고 푸시했습니다.")
+        if result.stdout:  # 실행 결과 출력 (디버깅용)
+            print("출력:", result.stdout)
     else:
         print(f"오류 발생: {result.stderr}")
 

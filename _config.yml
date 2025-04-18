@@ -29,6 +29,11 @@ url: "https://thuhoai27.github.io" # the base hostname & protocol for your site,
 twitter_username: jekyllrb
 github_username:  jekyll
 
+# permalink 설정
+# :title을 사용해 Front Matter의 title에서 슬러그를 생성합니다.
+# 파일명(날짜-이름.md)에 영향을 받지 않습니다.
+permalink: /:title/
+
 # Build settings
 theme: minima
 plugins:
